@@ -7,7 +7,7 @@ import Container from '@mui/material/Container';
 
 function App() {
   return (
-    <Container sx={{width: '45%'}}>
+    <Container maxWidth='md'>
       <Header />
       <Todos />
     </Container>
