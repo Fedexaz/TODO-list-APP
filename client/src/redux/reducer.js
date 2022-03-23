@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, FILTER_TODO } from './actionTypes';
+import action from './actionTypes';
 
 const initialState = {
     todos: [],
@@ -7,26 +7,41 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
     switch(type){
-        case ADD_TODO:{
+        case action.LOAD_TODOS:{
+            return {
+                ...state,
+                todos: payload,
+                todosBackup: payload
+            }
+        }
+        case action.ADD_TODO:{
             return{
                 ...state,
-                todos: [...state.todos, {
-                    'id': payload.id,
-                    'name': payload.name,
-                    'fecha': payload.date,
-                    'descripcion': payload.descripcion,
-                    'completada': payload.completada
-                }]
+                todos: [...state.todos, payload]
             };
         }
-        case REMOVE_TODO:{
+        case action.REMOVE_TODO:{
             return{
                 ...state,
-                todos: state.todos.filter(todo => todo !== payload.id)
+                todos: state.todos.filter(todo => todo !== payload)
             };
         }
-        case FILTER_TODO:{
+        case action.ORDER_TODO:{
+            if(payload === 'fecha_creacion'){
+                
+            }
+            if(payload === 'fecha_vencimiento'){
+
+            }
+            if(payload === 'estado'){
+                
+            }
             break;
+        }
+        case action.FREE_TODO:{
+            return {
+                ...state
+            }
         }
         default:{
             return {
