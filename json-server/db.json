@@ -1,18 +1,5 @@
 {
   "todos": [
-    {
-      "id": 1,
-      "name": "Hacer la tarea",
-      "fecha": "19/12/2020",
-      "descripcion": "Debe hacer la tarea",
-      "completada": false
-    },
-    {
-      "id": 2,
-      "name": "Comprar la comida",
-      "fecha": "19/03/2022",
-      "descripcion": "Comprar las cosas de la comida",
-      "completada": true
-    }
+
   ]
 }

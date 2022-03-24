@@ -1,5 +1,6 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import React from 'react';
+
+import Box from '@mui/material/Box';
 
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -12,10 +13,13 @@ export default function Todo({ todo }) {
   let hoy = new Date();
   let dateTodo = new Date(fecha);
 
-  let suma = dateTodo.getTime() - hoy.getTime(); //getTime devuelve milisegundos de esa fecha
-  let fechaDentroDeUnaSemana = new Date(suma);
+  console.log("Hoy", hoy)
+  console.log("Date todo" , dateTodo)
 
-  console.log(fechaDentroDeUnaSemana.toLocaleDateString())
+  //let suma = dateTodo.getTime() - hoy.getTime(); //getTime devuelve milisegundos de esa fecha
+  //let fechaDentroDeUnaSemana = new Date(suma);
+
+  //console.log(fechaDentroDeUnaSemana.toLocaleDateString())
 
   return (
     <Box sx={
@@ -25,7 +29,7 @@ export default function Todo({ todo }) {
         border: '1px solid gray', 
         marginTop: '15px', 
         marginBottom: '15px', 
-        padding: '10px' 
+        padding: '10px'
       }
     }>
       <h4>Completada: {completada ? 'si' : 'no'}</h4>
