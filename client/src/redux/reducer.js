@@ -17,7 +17,10 @@ const reducer = (state = initialState, { type, payload }) => {
         case action.ADD_TODO:{
             return{
                 ...state,
-                todos: [...state.todos, payload]
+                todos: [...state.todos, {
+                    ...payload,
+                    id: state.todos.length + 1
+                }]
             };
         }
         case action.REMOVE_TODO:{
@@ -28,12 +31,14 @@ const reducer = (state = initialState, { type, payload }) => {
         }
         case action.ORDER_TODO:{
             if(payload === 'fecha_creacion'){
-                
+               state.todos = state.todosBackup;
             }
             if(payload === 'fecha_vencimiento'){
-
+              state.todos = state.todosBackup;
+              
             }
             if(payload === 'estado'){
+              state.todos = state.todosBackup;
                 
             }
             break;

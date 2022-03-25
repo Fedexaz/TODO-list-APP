@@ -5,7 +5,7 @@ import action from './actionTypes';
 export const loadTodos = () => {
     return async (dispatch) => {
         try{
-            const payload = await axios.get('http://localhost:3001/todos');
+            const payload = await axios.get('/todos');
             return dispatch({
                 type: action.LOAD_TODOS,
                 payload: payload.data
@@ -20,7 +20,7 @@ export const loadTodos = () => {
 export const addTodo = (payload) => {
     return async (dispatch) => {
         try{
-            await axios.post('http://localhost:3001/todos', payload);
+            await axios.post('/todos', payload);
             return dispatch({
                 type: action.ADD_TODO,
                 payload
@@ -35,7 +35,7 @@ export const addTodo = (payload) => {
 export const removeTodo = (payload) => {
     return async (dispatch) => {
         try{
-            await axios.delete('http://localhost:3001/todos/' + payload);
+            await axios.delete('/todos/' + payload);
             return dispatch({
                 type: action.REMOVE_TODO,
                 payload

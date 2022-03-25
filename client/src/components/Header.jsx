@@ -34,13 +34,14 @@ export default function Header() {
         <span style={{ fontWeight: '600', fontSize: '20px' }}>Hoy: {date.toLocaleDateString()}</span>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Button sx={{ border: '1px solid gray', backgroundColor: 'lightgray' }}>Liberar seleccionadas</Button>
+        <Button sx={{ border: '1px solid gray', backgroundColor: 'lightgray', color: 'black' }}>Liberar seleccionadas</Button>
         <Button
         id="sort"
         aria-controls={open ? 'sort' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        sx={{ color: 'black' }}
       >
        <FilterAltIcon /> Ordenar
       </Button>

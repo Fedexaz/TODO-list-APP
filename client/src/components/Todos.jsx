@@ -27,12 +27,12 @@ export default function Todos() {
         todos.length ? 
             todos.map((todo) => <Todo key={todo.id} todo={
               {
-                fecha: todo.fecha, 
-                descripcion: todo.descripcion, 
+                fecha: todo.date, 
+                descripcion: todo.descripcion,
                 completada: todo.completada
               }} />) 
           : 
-            'No hay Todos en la DB'
+            'No hay nada que hacer'
       }
       {
         addTodo ?
