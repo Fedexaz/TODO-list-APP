@@ -1,9 +1,12 @@
 const actionTypes = {
   LOAD_TODOS: 'LOAD_TODOS',
+  SAVE_TODOS: 'SAVE_TODOS',
   ADD_TODO: 'ADD_TODO',
   REMOVE_TODO: 'REMOVE_TODO',
   ORDER_TODO: 'ORDER_TODO',
-  FREE_TODO: 'FREE_TODO'
+  PUT_FREE_TODO: 'PUT_FREE_TODO',
+  FREE_TODO: 'FREE_TODO',
+  SORTING: 'SORTING'
 };
 
 export default actionTypes;

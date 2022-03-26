@@ -54,9 +54,28 @@ export const orderTodo = (payload) => {
     }
 };
 
-export const freeTodo = (payload) => {
+export const setSorting = (payload) => {
     return {
-        type: action.FREE_TODO,
+        type: action.SORTING,
         payload
     }
 };
+
+export const putFreeTodo = (payload) => {
+    return {
+        type: action.PUT_FREE_TODO,
+        payload
+    }
+};
+
+export const freeTodo = () => {
+    return {
+        type: action.FREE_TODO
+    }
+};
+
+export const saveTodos = () => {
+    return {
+      type: action.SAVE_TODOS
+    }
+}

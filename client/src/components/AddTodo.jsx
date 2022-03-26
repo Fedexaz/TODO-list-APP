@@ -18,6 +18,7 @@ export default function AddTodo() {
   const dispatch = useDispatch();
 
   const [date, setDate] = useState(new Date());
+  const [charsLeft, setCharsLeft] = useState(0);
 
   const [dataTodo, setDataTodo] = useState({
     descripcion: '',
@@ -25,6 +26,9 @@ export default function AddTodo() {
   });
 
   const handleChange = (e) => {
+    if(e.target.name === 'descripcion'){
+      setCharsLeft((e.target.value.length + 1) - 1);
+    }
     setDataTodo({
       ...dataTodo,
       [e.target.name]: e.target.name === 'completada' ? e.target.checked : e.target.value
@@ -36,12 +40,25 @@ export default function AddTodo() {
     if(dataTodo.descripcion.length > 0){
       const datos = {
         ...dataTodo,
-        date
+        descripcion: dataTodo.descripcion.slice(0, 60),
+        date,
+        dateCreacion: new Date()
       }
       try{
         dispatch(addTodo(datos));
+        
         alert(` "${dataTodo.descripcion}" agregada correctamente.`);
+        
         dispatch(loadTodos());
+        
+        setDataTodo({
+          descripcion: '',
+          completada: false
+        });
+        
+        setDate(new Date());
+
+        setCharsLeft(50);
       }
       catch(e){
         console.log(e);
@@ -55,7 +72,7 @@ export default function AddTodo() {
   return (
     <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
       <form onSubmit={handleSubmit} method='POST'>
-        <TextField name='descripcion' value={dataTodo.descripcion} onChange={handleChange} label="Descripcion" sx={{ width: '100%', my: 1 }} required/>
+        <TextField name='descripcion' inputProps={{ maxLength: 60 }} value={dataTodo.descripcion} onChange={handleChange} label={`Descripcion (${charsLeft}/60 caracteres disponibles)`} sx={{ width: '100%', my: 1 }} required/>
         <LocalizationProvider dateAdapter={AdapterDateFns} locale={fechaCorrecta}>
           <DatePicker
             sx={{ width: '100%' }}
