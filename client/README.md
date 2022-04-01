@@ -1,8 +1,8 @@
-#TODO list app
+# TODO list app
 
-##Aplicación donde podemos crear, editar, listar y eliminar tareas!
+## Aplicación donde podemos crear, editar, listar y eliminar tareas!
 
-##Tecnologías usadas:
+## Tecnologías usadas:
 
 * React
 * Redux
